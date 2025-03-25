@@ -22,15 +22,14 @@ namespace AnalysisOfShareExchange
         {
             //Sort in ascending order.
             BubbleSort(selectedArray, ascending: true);
-            Console.WriteLine("\nSorting in Ascending Order and displaying every 10th value: ");
+            Console.WriteLine("\nSorting in Ascending Order and displaying every 10th value(1-based Index): ");
             DisplayEvery10thValue(selectedArray);
 
             //Sort in descending order.
             BubbleSort(selectedArray, ascending: false);
-            Console.WriteLine("\nSorting in Descending Order and displaying every 10th value: ");
+            Console.WriteLine("\nSorting in Descending Order and displaying every 10th value (1-based Index): ");
             DisplayEvery10thValue(selectedArray);
         }
-
 
         //Bubble sort algorithm.
         private void BubbleSort(int[] array, bool ascending)
@@ -75,12 +74,14 @@ namespace AnalysisOfShareExchange
                     break;
             }
         }
+
         //Method to display every 10th value of the array.
         private void DisplayEvery10thValue(int[] array)
         {
             for (int i = 9; i < array.Length; i += 10)
             {
-                Console.WriteLine($"Index {i}: {array[i]}");
+                //Display the index with 1-based index for every 10th element
+                Console.WriteLine($"Index {i + 1}: {array[i]}");
             }
         }
     }
