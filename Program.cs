@@ -18,7 +18,7 @@ namespace AnalysisOfShareExchange
             //Create an instance of the FileReader class.
             FileReader fileReader = new FileReader(fileNames);
 
-            //Creating arrays seperated by file type and file numbers.
+            //Creating arrays separated by file type and file numbers.
             int[] numbersArray1_256 = fileReader.ArrayFromFile("1", "256");
             int[] numbersArray2_256 = fileReader.ArrayFromFile("2", "256");
             int[] numbersArray3_256 = fileReader.ArrayFromFile("3", "256");
@@ -31,8 +31,8 @@ namespace AnalysisOfShareExchange
             SortandSearch sortAndSearch = new SortandSearch();
 
             //Continuously ask for input until valid
-            bool validInput = false;
-            while (!validInput)
+            bool continueLoop = true;
+            while (continueLoop)
             {
                 //Get the user input to select the array
                 sortAndSearch.GetInput();
@@ -42,31 +42,34 @@ namespace AnalysisOfShareExchange
                 {
                     case "1_256":
                         sortAndSearch.SortAndDisplay(numbersArray1_256);
-                        validInput = true; //Exit loop on valid input
                         break;
                     case "2_256":
                         sortAndSearch.SortAndDisplay(numbersArray2_256);
-                        validInput = true;
                         break;
                     case "3_256":
                         sortAndSearch.SortAndDisplay(numbersArray3_256);
-                        validInput = true;
                         break;
                     case "1_2048":
                         sortAndSearch.SortAndDisplay(numbersArray1_2048);
-                        validInput = true;
                         break;
                     case "2_2048":
                         sortAndSearch.SortAndDisplay(numbersArray2_2048);
-                        validInput = true;
                         break;
                     case "3_2048":
                         sortAndSearch.SortAndDisplay(numbersArray3_2048);
-                        validInput = true;
                         break;
                     default:
                         Console.WriteLine("Invalid input. Please enter a valid array name (1_256, 2_256, 3_256, 1_2048, 2_2048, 3_2048):");
                         break; //Keep looping until valid input
+                }
+                //Ask if they want to continue sorting another array
+                Console.WriteLine("\nWould you like to sort another array? (yes/no): ");
+                string response = Console.ReadLine()?.ToLower();
+
+                if (response != "yes")
+                {
+                    continueLoop = false;
+                    Console.WriteLine("Exiting the program.");
                 }
             }
         }

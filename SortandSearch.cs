@@ -9,6 +9,7 @@ namespace AnalysisOfShareExchange
     class SortandSearch
     {
         public string ToSort;
+        bool continueSorting = true;
 
         //Method to get user input for the array to search and sort.
         public void GetInput()
@@ -20,15 +21,17 @@ namespace AnalysisOfShareExchange
         //Method to sort and display every 10th element of the array.
         public void SortAndDisplay(int[] selectedArray)
         {
-            //Sort in ascending order.
-            BubbleSort(selectedArray, ascending: true);
-            Console.WriteLine("\nSorting in Ascending Order and displaying every 10th value(1-based Index): ");
-            DisplayEvery10thValue(selectedArray);
+            {
+                //Sort in ascending order.
+                BubbleSort(selectedArray, ascending: true);
+                Console.WriteLine("\nSorting in Ascending Order and displaying every 10th value (1-based Index): ");
+                DisplayEvery10thValue(selectedArray);
 
-            //Sort in descending order.
-            BubbleSort(selectedArray, ascending: false);
-            Console.WriteLine("\nSorting in Descending Order and displaying every 10th value (1-based Index): ");
-            DisplayEvery10thValue(selectedArray);
+                //Sort in descending order.
+                BubbleSort(selectedArray, ascending: false);
+                Console.WriteLine("\nSorting in Descending Order and displaying every 10th value (1-based Index): ");
+                DisplayEvery10thValue(selectedArray);
+            }
         }
 
         //Bubble sort algorithm.
