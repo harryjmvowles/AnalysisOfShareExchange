@@ -21,14 +21,13 @@ using System.Numerics;
 * - Allows the user to select the array for sorting and searching.
 * - Allows the user to choose the sorting method (Bubble Sort, Selection Sort, Insertion Sort).
 * - Sorts the data in both ascending and descending order.
-* - Displays every 10th (for smaller datasets) or 50th (for larger datasets) value after sorting.
+* - Displays every 10th (for smaller datasets) or 50th (for larger datasets) value after sorting in a 1-based index system.
 * - Searches for a user-defined value and returns its location(s).
 * - If the value is not found, provides the nearest value(s) and their position(s).
 *
 * Input Parameters:
 * - Arrays containing stock exchange volume data, read from six different input files.
 * - Sorting method selected by the user (Bubble Sort, Selection Sort, Insertion Sort).
-* - Sorting direction (ascending/descending) selected by the user.
 * - Search value provided by the user for locating positions or nearest values.
 * - User input to choose the array for sorting or searching.
 *
