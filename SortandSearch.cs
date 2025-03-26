@@ -18,23 +18,98 @@ namespace AnalysisOfShareExchange
             ToSortOrSearch = Console.ReadLine();
         }
 
+        //Method to pick which sorting method to use.
         public void SortAndDisplay(int[] selectedArray, string arrayName)
         {
-            //Create a copy of the array to prevent modifying the original
-            int[] sortedArray = (int[])selectedArray.Clone();
+            //Ask the user to select the sorting algorithm
+            Console.WriteLine("\nSelect Sorting Algorithm:");
+            Console.WriteLine("1. Bubble Sort");
+            Console.WriteLine("2. Selection Sort");
+            Console.WriteLine("3. Insertion Sort");
 
-            //Sort in ascending order.
-            BubbleSort(sortedArray, ascending: true);
-            Console.WriteLine("\nSorting in Ascending Order:");
-            DisplayElements(sortedArray, arrayName);
+            string userChoice = Console.ReadLine();
+            int[] sortedArray;
 
-            //Create another copy to sort in descending order
-            sortedArray = (int[])selectedArray.Clone();
+            switch (userChoice)
+            {
+                case "1":
+                    //Bubble Sort (ascending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    BubbleSort(sortedArray, ascending: true);
+                    Console.WriteLine("\nBubble Sort - Ascending Order:");
+                    DisplayElements(sortedArray, arrayName);
 
-            //Sort in descending order.
-            BubbleSort(sortedArray, ascending: false);
-            Console.WriteLine("\nSorting in Descending Order:");
-            DisplayElements(sortedArray, arrayName);
+                    //Bubble Sort (descending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    BubbleSort(sortedArray, ascending: false);
+                    Console.WriteLine("\nBubble Sort - Descending Order:");
+                    DisplayElements(sortedArray, arrayName);
+                    break;
+
+                case "2":
+                    //Selection Sort (ascending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    SelectionSort(sortedArray, ascending: true);
+                    Console.WriteLine("\nSelection Sort - Ascending Order:");
+                    DisplayElements(sortedArray, arrayName);
+
+                    //Selection Sort (descending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    SelectionSort(sortedArray, ascending: false);
+                    Console.WriteLine("\nSelection Sort - Descending Order:");
+                    DisplayElements(sortedArray, arrayName);
+                    break;
+
+                case "3":
+                    //Insertion Sort (ascending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    InsertionSort(sortedArray, ascending: true);
+                    Console.WriteLine("\nInsertion Sort - Ascending Order:");
+                    DisplayElements(sortedArray, arrayName);
+
+                    //Insertion Sort (descending)
+                    sortedArray = (int[])selectedArray.Clone();
+                    InsertionSort(sortedArray, ascending: false);
+                    Console.WriteLine("\nInsertion Sort - Descending Order:");
+                    DisplayElements(sortedArray, arrayName);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid input. Please select 1, 2, or 3 for the sorting method.");
+                    break;
+            }
+        }
+
+        //Selection Sort Algorithm
+        private void SelectionSort(int[] array, bool ascending)
+        {
+            int n = array.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int selectedIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (ascending)
+                    {
+                        if (array[j] < array[selectedIndex]) //Ascending order
+                        {
+                            selectedIndex = j;
+                        }
+                    }
+                    else
+                    {
+                        if (array[j] > array[selectedIndex]) //Descending order
+                        {
+                            selectedIndex = j;
+                        }
+                    }
+                }
+
+                // Swap the elements
+                int temp = array[selectedIndex];
+                array[selectedIndex] = array[i];
+                array[i] = temp;
+            }
         }
 
         //Bubble sort algorithm.
@@ -81,6 +156,37 @@ namespace AnalysisOfShareExchange
             }
         }
 
+        //Insertion Sort Algorithm
+        private void InsertionSort(int[] array, bool ascending)
+        {
+            int n = array.Length;
+            for (int i = 1; i < n; i++)
+            {
+                int key = array[i];
+                int j = i - 1;
+
+                //For Ascending Order
+                if (ascending)
+                {
+                    while (j >= 0 && array[j] > key)
+                    {
+                        array[j + 1] = array[j];
+                        j--;
+                    }
+                }
+                //For Descending Order
+                else
+                {
+                    while (j >= 0 && array[j] < key)
+                    {
+                        array[j + 1] = array[j];
+                        j--;
+                    }
+                }
+                array[j + 1] = key;
+            }
+        }
+
         //Method to display elements based on array size.
         private void DisplayElements(int[] array, string arrayName)
         {
@@ -105,6 +211,7 @@ namespace AnalysisOfShareExchange
             }
         }
 
+       
         //Search for a value in the selected array (Linear Search).
         public void SearchValue(int[] selectedArray)
         {

@@ -13,11 +13,13 @@ using System.Numerics;
 *
 * Description:
 * This program is a console-based application that reads six different files,
-* sorts the data in ascending/descending order, and searches the text files for a user-defined input.
+* sorts the data in ascending/descending order based on chosen user method, and searches the text files for a user-defined input.
 * The program allows users to analyze stock trading activity by implementing different sort and search methods.
 *
 * Main Functionality:
 * - Reads stock exchange volume data from six input files.
+* - Allows the user to select the array for sorting and searching.
+* - Allows the user to choose the sorting method (Bubble Sort, Selection Sort, Insertion Sort).
 * - Sorts the data in both ascending and descending order.
 * - Displays every 10th (for smaller datasets) or 50th (for larger datasets) value after sorting.
 * - Searches for a user-defined value and returns its location(s).
@@ -25,6 +27,7 @@ using System.Numerics;
 *
 * Input Parameters:
 * - Arrays containing stock exchange volume data, read from six different input files.
+* - Sorting method selected by the user (Bubble Sort, Selection Sort, Insertion Sort).
 * - Sorting direction (ascending/descending) selected by the user.
 * - Search value provided by the user for locating positions or nearest values.
 * - User input to choose the array for sorting or searching.
@@ -34,7 +37,7 @@ using System.Numerics;
 * - Search results showing the position(s) of the specified value, or the nearest value(s) and their position(s).
 *
 * Implemented Algorithms:
-* - Sorting: Bubble Sort
+* - Sorting: Bubble Sort, Selection Sort, Insertion Sort 
 * - Searching: Linear Search
 */
 
