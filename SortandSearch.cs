@@ -164,11 +164,11 @@ namespace AnalysisOfShareExchange
                 //If the current difference is the same as the smallest found, add to the list
                 else if (difference == closestDifference)
                 {
-                    closestIndices.Add(i + 1);// Store the 1-based index
+                    closestIndices.Add(i + 1);//Store the 1-based index
                 }
             }
 
-            // Display the nearest value(s) and their locations
+            //Display the nearest value(s) and their locations
             Console.WriteLine($"\nThe nearest value(s) to {searchValue} is/are {nearestValue} at index/indices: {string.Join(", ", closestIndices)}");
         }
     }

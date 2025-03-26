@@ -6,6 +6,38 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Numerics;
 
+/*
+* Program Name: Analysis of Share Exchange
+* Author: Harry James Michael Vowles
+* Date: 27/03/2025
+*
+* Description:
+* This program is a console-based application that reads six different files,
+* sorts the data in ascending/descending order, and searches the text files for a user-defined input.
+* The program allows users to analyze stock trading activity by implementing different sort and search methods.
+*
+* Main Functionality:
+* - Reads stock exchange volume data from six input files.
+* - Sorts the data in both ascending and descending order.
+* - Displays every 10th (for smaller datasets) or 50th (for larger datasets) value after sorting.
+* - Searches for a user-defined value and returns its location(s).
+* - If the value is not found, provides the nearest value(s) and their position(s).
+*
+* Input Parameters:
+* - Arrays containing stock exchange volume data, read from six different input files.
+* - Sorting direction (ascending/descending) selected by the user.
+* - Search value provided by the user for locating positions or nearest values.
+* - User input to choose the array for sorting or searching.
+*
+* Expected Output:
+* - Sorted data with selected interval values displayed (every 10th or 50th value).
+* - Search results showing the position(s) of the specified value, or the nearest value(s) and their position(s).
+*
+* Implemented Algorithms:
+* - Sorting: Bubble Sort
+* - Searching: Linear Search
+*/
+
 namespace AnalysisOfShareExchange
 {
     internal class Program
